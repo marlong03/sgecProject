@@ -1,0 +1,158 @@
+
+<header>
+    <div class="navbar navbar-expand-lg navbar-light ">
+        <img src="../../assets/imgs/logo2.png" alt="">
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <section class="container__section--nav d-lg-none">
+
+            <nav>
+                <div class="container__login">
+                    <img src="../../assets/imgs/usuario.jpg" alt="foto persona">
+                    <h3>wernher florez</h3>
+                    <a href="../../index.html"><input type="button" class="btn btn-light" value="Cerrar sesión"></a>
+
+                </div>
+                
+                <div class="container__modulos">
+                    <h3>Registro Cliente</h3>
+                    <ul>
+                        <li><a href="../registroPedido/pedidosMesa.html" target="principal">Pedidos en mesa</a></li>
+                        <li><a href="../registroPedido/pedidosDomicilio.html" target="principal">Pedidos a Domicilio</a></li>
+                        <li><a href="../registroPedido/pedidosRecojeTienda.html" target="principal">Recoger en tienda</a></li>
+                    </ul>
+                    <h3>Inventario</h3>
+                    <ul>
+                        <li><a href="../Inventario/visualizarProductos.html" target="principal">Listado de Productos</a></li>
+                        <li><a href="../Inventario/agregarProducto.html" target="principal">Agregar producto</a></li>
+                        <li><a href="../Inventario/actualizarProducto.html" target="principal">Actualizar producto</a></li>
+                        <li><a href="../Inventario/borrarProducto.html" target="principal">Borrar Producto</a></li>
+                    </ul>
+                    <h3>Domicilio</h3>
+                    <ul>
+                        <li><a href="../domiciliario/pedidosRealizados.html" target="principal">Registro domicilios</a></li> 
+                    </ul>                       
+                </div>             
+            </nav>
+        </section>  
+      </div>
+    </div>
+
+    </header>
+<main>
+    <div id="myModal" class="modal"  [style.display]="displayBlock">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close" (click)="cerrarModal()">&times;</span>
+          <section class="container__form">
+            <h2 class="text-center">Actualizar</h2>
+            <form class="row g-3 " novalidate>
+                <div class="col-md-4 position-relative">
+                  <label for="validationTooltip01" class="form-label">Nombre Completo:</label>
+                  <input type="text" class="form-control" name="nombreCompleto" [(ngModel)]="nombreCompleto" placeholder="{{user.nombreusuario}}" required>
+                  
+                </div>
+                <div class="col-md-4 position-relative">
+                    <label for="validationTooltip01" class="form-label">Telefono:</label>
+                    <input type="text" class="form-control" id="validationTooltip01" name="telefono"[(ngModel)]="telefono" placeholder="{{user.telefonousuario}}" required>
+                    
+                  </div>
+                  <div class="col-md-4 position-relative">
+                    <label for="validationTooltip01" class="form-label">Email:</label>
+                    <input type="text" class="form-control" id="validationTooltip01"name="email" [(ngModel)]="email" placeholder="{{user.emailusuario}}" required>
+                    
+                  </div>
+                  <div class="col-md-4 position-relative">
+                    <label for="validationTooltip01" class="form-label">Contraseña:</label>
+                    <input type="text" class="form-control" id="validationTooltip01" name="contrasena" [(ngModel)]="contrasena" placeholder="{{user.contrasenausuario}}"  required>
+                    
+                  </div>
+                  
+                <div class="col-12 d-flex justify-content-center my-2">
+                  <button class="btn btn-primary px-3 py-2" type="botton" (click)="actualizarUsuario()">Actualizar </button>
+                </div>
+              </form>
+          </section>
+        </div>
+      
+      </div>
+    <section class="section__nav--big">
+
+        <nav class="">
+            <div class="container__login">
+                <img src="../../assets/imgs/usuario.jpg" alt="foto persona">
+                <h3>{{nombreUsuarioSesion.nombreusuario}}</h3>
+                <div class="d-flex container__edit align-items-center" (click)="abrirModal()">   
+                    <input (click)="direccionarUrl('')" type="button" class="btn btn-light" value="Cerrar sesión" >
+                    <img src="../../assets/imgs/editar.png" alt="">
+                </div>
+            </div>
+            
+            <div class="container__modulos">
+                <h3>Registro Pedidos</h3>
+                <ul>
+                    <a href="../registroPedido/pedidosMesa.html" target="principal"><li>Pedidos Pendientes</li></a>
+                    <a href="../registroPedido/pedidosMesa.html" target="principal"><li>Pedidos Entregados</li></a>
+
+                    <!-- <a href="../registroPedido/pedidosDomicilio.html" target="principal"><li>Pedidos a domicilio</li></a>
+                    <a href="../registroPedido/pedidosRecojeTienda.html" target="principal"><li>Recoger en tienda</li></a> -->
+                </ul>
+                <h3>Inventario</h3>
+                <ul>
+                    <a href="../Inventario/visualizarProductos.html" target="principal"><li>Listado de Productos</li></a>
+                    <a href="../Inventario/agregarProducto.html" target="principal"><li>Agregar producto</li></a>
+                    <a href="../Inventario/actualizarProducto.html" target="principal"><li>Actualizar producto</li></a>
+                    <a href="../Inventario/borrarProducto.html" target="principal"><li>Borrar Producto</li></a>
+
+                </ul>
+                <h3>Domicilio</h3>
+                <ul>
+                    <a href="../domiciliario/pedidosRealizados.html" target="principal"><li>Registro domicilios</li></a>
+                    
+                </ul>
+                
+            </div>
+            
+        </nav>
+    </section>
+    
+<section style="width:100%">
+    <section class="container__table">
+        <h1>Pedidos a domicilio </h1>
+        <div class="table-responsive">
+           <!--  <table datatable #tabla class="row-border hover">
+                <thead>
+                  <tr>
+                    <th>Id pedido</th>
+                    <th>Referencia</th>
+                    <th>Destino pedido</th>
+                    <th>Descripcion pedido</th>
+                    <th>observacionPedido</th>
+                    <th>Valor pedido</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let pedido of persons">
+                    <td>{{pedido.idpedido}}</td>
+                    <td>{{pedido.referenciapedido}}</td>
+                    <td>{{pedido.destinopedido}}</td>
+                    <td>{{pedido.descripcionpedido}}</td>
+                    <td>{{pedido.observacionpedido}}</td>
+                    <td>{{pedido.valorpedido}}</td>
+                  </tr>
+                </tbody>
+              </table> -->
+        </div>
+    </section>
+    
+    <!-- <iframe name="principal"src="./graficas.html"></iframe> -->
+</section>
+</main>
+<footer>
+    <p>creado por&nbsp</p><a href="../../html/inventario/inventario.html">SGECR</a>
+</footer>

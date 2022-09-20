@@ -1,0 +1,323 @@
+/* html{
+} */
+.navFirst li{
+    cursor: pointer;
+}
+.container__inicio{
+    width:100%;
+    background-image:url('../../assets/imgs/fondoInicio.jpg');
+    background-size:contain;
+}
+
+.target_addCarrito{
+    background-color: #f5cf24ec;
+    border-radius: 10px;
+    padding:10px 70px 10px 20px;
+    position: fixed;
+    z-index: 100;
+    margin-left: 20px;
+    animation: leftToRight 1s;
+    animation: scales 1s;
+}
+.displayNone{
+    display: none;
+}
+@keyframes scales {
+    0%{transform: scale(0);
+        left:-500px;
+    }
+    50%{transform: scale(1.2);
+        left:30px;
+    }
+    100%{left:0px;}
+}
+@keyframes leftToRight {
+    0%{left:-500px}
+    50%{left:0px;}
+}
+
+.target_addCarrito h5 {
+    margin:0;
+    padding:0;
+}
+.target_addCarrito p {
+    margin:0;
+    padding:0;
+}
+
+
+
+
+
+
+header{
+    background:linear-gradient(to top,#00000044,50%,#c7c7c7);
+    display: flex ;
+    justify-content: center;
+    height: 150px;
+}
+header img{
+    width:150px;
+    margin:auto;
+}
+.container__section{
+    width:100%;
+    height: 100vh;
+    position: relative;
+}
+
+.container__section h1{
+    font-size: 100px !important;
+    color:#dbce13;
+    text-shadow: 4px 3px 0px #a59b12;
+}
+nav{
+    display: flex;
+    justify-content: center;
+    background-color: #0000003d;
+    padding-bottom:10px;
+}
+a{
+    text-decoration: none;
+    color:#000000;
+}
+a:hover{
+    text-decoration: none;
+    color:#000000;
+}
+nav ol{
+    background-color: #dac511;
+    border-radius: 50px;
+    display: flex;
+    /* justify-content: center; */
+    list-style: none;
+    border:4px solid white;
+    padding:0 40px;
+    /* flex-wrap: wrap; */
+}
+/* h3{
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-size: 20px;
+} */
+nav li{
+    padding:5px;
+    width:200px;
+    text-align: center;
+   
+}
+nav a{
+    text-decoration: none;
+    color:#000000;
+}
+nav a:hover{
+    text-decoration: none;
+    color:#000000;
+}
+.navFirst ol{
+    margin:auto;
+    width: 250px;
+}
+
+.navFirst a:hover{
+    border-bottom:3.5px dotted #000000;
+}
+.seccion__principal h1{
+    font-size: 130px;
+    background-color: #000000e1;
+    letter-spacing: 5px;
+    font-family:sans-serif;
+    border-radius: 60px;
+    padding:0 30px;
+}
+.seccion__principal div{
+    height:400px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.seccion__principal div:first-child{
+    color:#ecde14;
+    font-size: 60px;
+    width:100%;
+    position: absolute;
+    z-index: 10;
+}
+.seccion__principal div p{
+    margin-top: 10px;
+    max-width: 80%;
+}
+.seccion__principal div a{
+    text-decoration: none;
+    padding:10px 20px;
+    margin-top:55px;
+    color:white;
+    background-color: rgb(202, 9, 9);
+    border-radius: 5px;
+    border:3px solid black;
+}
+.seccion__principal div a:hover{
+    background-color: #ecde14;
+    color:black;
+}
+.nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.nav ul{
+    display: flex;
+    padding:0;
+}
+.nav li{
+    padding:20px 20px;
+    margin:10px 2px;
+    list-style: none;
+    cursor: pointer;
+    border:2px solid #ffffff;
+    background-color: #383838;
+    color:white;
+}
+.nav li:hover{
+    background-color: #ffe600;
+    color:black;
+}
+
+/* ---- */
+.section__container--targets{
+    border: 3px solid #ffffff;
+    background-color: #383838;
+    border-radius: 10px;
+    padding: 30px 0;
+    width:90%;
+    margin:60px auto;
+}
+.section__container--targets h2{
+    color:white;
+    text-align: center;
+}
+.container__targets{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+.target{
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    border: 2px solid black;
+    border-radius: 12px;
+    margin:10px 0;
+}
+.target:hover{
+    border: 2px solid #ffffff;
+
+}
+.target img{
+    width:140px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    cursor: pointer;
+}
+.target h3{
+    border-bottom: 2px solid black;
+    padding:4px;
+    margin-bottom:4px;
+}
+
+
+
+.container_paragraph{
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #ffe600;
+}
+.container_paragraph span{
+    align-self: center;
+    padding-left: 10px;
+
+}
+section h2{
+    margin-bottom: 40px;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+
+/* ----Footer--------------- */
+footer{
+    display: flex ;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(to right, #C02425,#F0CB35); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding:30px 0;
+    box-shadow: 0px 0px 80px black;
+    border-top: 5px solid white;
+
+}
+.redes{
+    background-color: #ffffff;
+    height:90px;
+    padding:10px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #2b2b2b;
+}
+.redes img{
+    width:40px;
+    margin:5px 10px;
+    border:3px solid #00000000;
+}
+.redes p{
+    letter-spacing: 7px;
+    font-size: 22px;
+}
+.form__container{
+    display:flex !important;
+    flex-direction: column !important;
+}
+.form__container input , .form__container textarea{
+    padding:7px 9px;
+    margin:6px 0;
+    border:none;
+    border-radius: 3px;
+    box-shadow: 7px 6px 1px #222222;
+    outline: none;
+}
+.container__footer--left{
+    border:2px solid black;
+    padding:10px;
+    border-radius: 10px;
+}
+.container__footer--left .container__logo{
+    display: flex;
+    justify-content: center;
+    padding:25px 0;
+}
+.container__footer--left .container__logo img{
+    width:250px;
+}
+#btnSendForm{
+    background-color: #ffffff;
+    cursor:pointer;
+    border: 2px solid white;
+}
+#btnSendForm:hover{
+    border: 2px solid #646464;
+}
+.card-title{ 
+    text-align: center;
+    margin: auto;
+    padding:auto;
+}
+.card-title h5{
+    text-align: center;
+}
