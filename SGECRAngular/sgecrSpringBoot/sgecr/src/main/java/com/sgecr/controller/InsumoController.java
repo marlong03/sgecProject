@@ -3,7 +3,6 @@ package com.sgecr.controller;
 import java.util.List;
 import java.util.Optional;
 
-/* import org.apache.catalina.User; */
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,37 +13,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sgecr.model.Usuario;
-import com.sgecr.service.UsuarioService;
+import com.sgecr.model.Insumo;
+import com.sgecr.service.InsumoService;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping("/usuario/")
-public class UsuarioController {
+@RequestMapping("/insumo/")
+public class InsumoController {
     @Autowired
-    UsuarioService usuarioService;
-  
+    InsumoService service;
+
     @GetMapping("all")
-    public List<Usuario> getUsuarios(){
-        return usuarioService.getAllUsuarios();
+    public List<Insumo> getInsumos(){
+        return service.getAllInsumos();
     }
     @GetMapping("{id}")
-    public Optional<Usuario> getUsuarios(@PathVariable int id){
-        return usuarioService.getUsuario(id);
+    public Optional<Insumo> getInsumos(@PathVariable int id){
+        return service.getInsumo(id);
     }
-    @GetMapping("{email}/{password}")
-    public Usuario getUsuarios(@PathVariable String email,@PathVariable String password){
-        return usuarioService.validarUsuario(email, password);
-    }
+   
     @PostMapping("new")
-    public void postUsuario(@RequestBody Usuario u){
-        usuarioService.postUsuario(u);
-        System.out.println(u);
-       /*  return u; */
+    public void postInsumo(@RequestBody Insumo u){
+        service.postInsumo(u);
     }
     @DeleteMapping("{id}")
-    public int deleteUsuario(@PathVariable int id){
-        usuarioService.deleteUsuario(id);
+    public int deleteInsumo(@PathVariable int id){
+        service.deleteInsumo(id);
         return id;
     }
 }

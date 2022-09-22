@@ -1,9 +1,7 @@
 package com.sgecr.controller;
-
 import java.util.List;
 import java.util.Optional;
 
-/* import org.apache.catalina.User; */
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,37 +12,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sgecr.model.Usuario;
-import com.sgecr.service.UsuarioService;
+import com.sgecr.model.Rol;
+import com.sgecr.service.RolService;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping("/usuario/")
-public class UsuarioController {
+@RequestMapping("/rol/")
+public class RolController {
     @Autowired
-    UsuarioService usuarioService;
-  
+    RolService service;
+
     @GetMapping("all")
-    public List<Usuario> getUsuarios(){
-        return usuarioService.getAllUsuarios();
+    public List<Rol> getRols(){
+        return service.getAllRols();
     }
     @GetMapping("{id}")
-    public Optional<Usuario> getUsuarios(@PathVariable int id){
-        return usuarioService.getUsuario(id);
+    public Optional<Rol> getRols(@PathVariable int id){
+        return service.getRol(id);
     }
-    @GetMapping("{email}/{password}")
-    public Usuario getUsuarios(@PathVariable String email,@PathVariable String password){
-        return usuarioService.validarUsuario(email, password);
-    }
+   
     @PostMapping("new")
-    public void postUsuario(@RequestBody Usuario u){
-        usuarioService.postUsuario(u);
-        System.out.println(u);
-       /*  return u; */
+    public void postRol(@RequestBody Rol u){
+        service.postRol(u);
     }
     @DeleteMapping("{id}")
-    public int deleteUsuario(@PathVariable int id){
-        usuarioService.deleteUsuario(id);
+    public int deleteRol(@PathVariable int id){
+        service.deleteRol(id);
         return id;
     }
 }

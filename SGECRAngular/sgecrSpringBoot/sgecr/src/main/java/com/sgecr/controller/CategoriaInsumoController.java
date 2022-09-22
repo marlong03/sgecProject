@@ -3,7 +3,6 @@ package com.sgecr.controller;
 import java.util.List;
 import java.util.Optional;
 
-/* import org.apache.catalina.User; */
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,37 +13,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sgecr.model.Usuario;
-import com.sgecr.service.UsuarioService;
+import com.sgecr.model.CategoriaInsumo;
+import com.sgecr.service.CategoriaInsumoService;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping("/usuario/")
-public class UsuarioController {
+@RequestMapping("/categoriainsumo/")
+public class CategoriaInsumoController {
     @Autowired
-    UsuarioService usuarioService;
-  
+    CategoriaInsumoService service;
+
     @GetMapping("all")
-    public List<Usuario> getUsuarios(){
-        return usuarioService.getAllUsuarios();
+    public List<CategoriaInsumo> getInsumos(){
+        return service.getAllCategoriaInsumos();
     }
     @GetMapping("{id}")
-    public Optional<Usuario> getUsuarios(@PathVariable int id){
-        return usuarioService.getUsuario(id);
+    public Optional<CategoriaInsumo> getCategoriaInsumo(@PathVariable int id){
+        return service.getCategoriaInsumo(id);
     }
-    @GetMapping("{email}/{password}")
-    public Usuario getUsuarios(@PathVariable String email,@PathVariable String password){
-        return usuarioService.validarUsuario(email, password);
-    }
+   
     @PostMapping("new")
-    public void postUsuario(@RequestBody Usuario u){
-        usuarioService.postUsuario(u);
-        System.out.println(u);
-       /*  return u; */
+    public void postCategoriaInsumo(@RequestBody CategoriaInsumo u){
+        service.postCategoriaInsumo(u);
     }
     @DeleteMapping("{id}")
-    public int deleteUsuario(@PathVariable int id){
-        usuarioService.deleteUsuario(id);
+    public int deleteCategoriaInsumo(@PathVariable int id){
+        service.deleteCategoriaInsumo(id);
         return id;
     }
 }
