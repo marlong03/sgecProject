@@ -193,27 +193,27 @@ footer a{
 body{
     margin-top: 20px;
 }
-tr:first-child{
+/* tr:first-child{
     background-color: #bbbbbb;
     text-align: center;
     text-transform: capitalize;
 
-}
-td{
+} */
+/* td{
     padding: 2px 7px;
     border:2px solid #000000;
     text-transform: capitalize ;
-}
+} */
 .container__acciones{
     display: flex;
 }
 center h2{
     margin-top: 20px;
 }
-table{
+/* table{
     margin:0px 0;
     max-width: 90%;
-}
+} */
 .table-responsive{
     margin-bottom: 30px;
 }
@@ -222,18 +222,24 @@ table{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    text-align: center;
+    padding-top:50px;
+   /*  text-align: center; */
     margin:auto;
 
     /* width:100vw; */
     
 }
-table{
+.container__table tbody td{
+    max-width: 200px;
+    min-width: 30px;
+    
+}
+/* table{
     margin:auto;
     margin-bottom: 20px;
     text-transform: capitalize;
 
-}
+} */
 .container__table h1{
     font-size: 35px;
     margin-top: 35px;
@@ -288,11 +294,11 @@ table{
     border-radius: 7px;
     border:1px solid gray;
 }
- td ul{
+ /* td ul{
     margin-left: 10px;
     text-transform: capitalize;
 
-}
+} */
  select{
     padding:7px 2px;
     border-radius: 7px;
@@ -305,18 +311,18 @@ table{
     color:white;
     cursor: pointer;
 }
-td a input{
+/* td a input{
     padding:12px 10px;
     border-radius: 5px;
     background-color: #07b307;
     border:none;
     color:white;
     cursor: pointer;
-}
+} */
 
-tr{
+/* tr{
     text-transform: capitalize ;
-}
+} */
 .container__edit img{
     width:18px;
     height:18px;

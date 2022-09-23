@@ -1,6 +1,5 @@
 package com.sgecr.model;
 
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,9 +21,9 @@ public class Insumo {
     @Column
     private String unidadinsumo;
     @Column
-    private String valortotalinsumo;
+    private int valortotalinsumo;
     @Column
-    private Date fechaingreso;
+    private String fechaingreso;
     @Column
     private String estadoinsumo;
     @Column
@@ -33,8 +32,8 @@ public class Insumo {
     private int valorunitarioinsumo;
     public Insumo() {
     }
-    public Insumo(int idinsumo, String nombreinsumo, int cantidadinsumo, String unidadinsumo, String valortotalinsumo,
-            Date fechaingreso, String estadoinsumo, int fk_idcategoriainsumos, int valorunitarioinsumo) {
+    public Insumo(int idinsumo, String nombreinsumo, int cantidadinsumo, String unidadinsumo, int valortotalinsumo,
+            String fechaingreso, String estadoinsumo, int fk_idcategoriainsumos, int valorunitarioinsumo) {
         this.idinsumo = idinsumo;
         this.nombreinsumo = nombreinsumo;
         this.cantidadinsumo = cantidadinsumo;
@@ -69,16 +68,16 @@ public class Insumo {
     public void setUnidadinsumo(String unidadinsumo) {
         this.unidadinsumo = unidadinsumo;
     }
-    public String getValortotalinsumo() {
+    public int getValortotalinsumo() {
         return valortotalinsumo;
     }
-    public void setValortotalinsumo(String valortotalinsumo) {
+    public void setValortotalinsumo(int valortotalinsumo) {
         this.valortotalinsumo = valortotalinsumo;
     }
-    public Date getFechaingresoinsumo() {
+    public String getFechaingresoinsumo() {
         return fechaingreso;
     }
-    public void setFechaingresoinsumo(Date fechaingreso) {
+    public void setFechaingresoinsumo(String fechaingreso) {
         this.fechaingreso = fechaingreso;
     }
     public String getEstadoinsumo() {

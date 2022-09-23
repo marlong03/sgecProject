@@ -1,6 +1,5 @@
 package com.sgecr.model;
 
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,7 +30,7 @@ public class Pedido {
     @Column
     private String estadopedido;
     @Column
-    private Date fechapedido;
+    private String fechapedido;
     @Column
     private int fk_iddomiciliario;
 
@@ -40,7 +39,7 @@ public class Pedido {
     
     public Pedido(int idpedido, String referenciapedido, String descripcionpedido, String destinopedido,
             String detalledestinopedido, String valorpedido, String observacionpedido, int fk_idusuario,
-            String estadopedido, Date fechapedido, int fk_iddomiciliario) {
+            String estadopedido, String fechapedido, int fk_iddomiciliario) {
         this.idpedido = idpedido;
         this.referenciapedido = referenciapedido;
         this.descripcionpedido = descripcionpedido;
@@ -108,10 +107,10 @@ public class Pedido {
     public void setEstadopedido(String estadopedido) {
         this.estadopedido = estadopedido;
     }
-    public Date getFechapedido() {
+    public String getFechapedido() {
         return fechapedido;
     }
-    public void setFechapedido(Date fechapedido) {
+    public void setFechapedido(String fechapedido) {
         this.fechapedido = fechapedido;
     }
     public int getFk_iddomiciliario() {
