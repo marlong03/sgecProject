@@ -127,6 +127,7 @@ export class DashboardAdministradorComponent implements OnInit,OnDestroy {
     try{
       console.log(data);
       this.insumoService.PostInsumo(data);
+      alert("se añadio")
     }catch(err){
       alert("NO PUDIMOS CREAR EL INSUMO")
       console.log(err);
@@ -151,22 +152,12 @@ export class DashboardAdministradorComponent implements OnInit,OnDestroy {
     try{
       console.log(data);
       this.insumoService.PostInsumo(data);
+      alert("se actualizo ")
+
     }catch(err){
       alert("NO PUDIMOS CREAR EL INSUMO")
       console.log(err);
       
-    }
-  }
-  borrarInsumo(event:any){
-    let id = event.path[2].children[0].childNodes[0].data
-    console.log(event.path[2].children[0].childNodes[0].data)
-    try{
-     this.insumoService.deleteInsumoById(id).subscribe((data:any)=>{
-      console.log(data);
-      
-     })
-    }catch (error){
-       console.log(error)
     }
   }
   constructor(private router:Router,
