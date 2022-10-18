@@ -378,3 +378,7 @@ center h2{
     padding:5px 10px;
   }
 /* MODAL */
+
+.container__section--left{
+    width: 100%;
+}

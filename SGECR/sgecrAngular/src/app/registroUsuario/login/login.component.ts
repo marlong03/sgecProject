@@ -3,11 +3,12 @@ import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
-  selector: 'app-login-empleado',
-  templateUrl: './login-empleado.component.html',
-  styleUrls: ['./login-empleado.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class LoginEmpleadoComponent implements OnInit {
+export class LoginComponent implements OnInit {
+
   direccionarUrl(url:string){
     this.router.navigate([url])
   }

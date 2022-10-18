@@ -11,6 +11,14 @@ import { UsuarioService } from '../services/usuario.service';
   styleUrls: ['./dashboard-administrador.component.css']
 })
 export class DashboardAdministradorComponent implements OnInit,OnDestroy {
+  
+  constructor(private router:Router,
+    private usuarioService:UsuarioService,
+    private pedidoService:PedidoService,
+    private productoService:ProductoService,
+    private insumoService:InsumoService,
+    private categoriaInsumoService:CategoriaInsumoService) { }
+    
   listaPedidos:any = [];
   listaInsumos:any = [];
   listaCategoriaInsumos:any = [];
@@ -18,13 +26,16 @@ export class DashboardAdministradorComponent implements OnInit,OnDestroy {
 
   displayBlock = "none";
   displayBlockInsumo = 'none';
-
   accionModalInsumo = "";
   categoriaSelect:any;
-  /* nombreInsumo:any = "";
-  cantidadInsumo:any = "";
-  valorUnitarioInsumo:any = "";
-  unidadInsumo:any= ""; */
+
+  pedidosTableState = false;
+  insumoTableState = false;
+
+  nombreUsuarioSesion = JSON.parse(localStorage.getItem("usuario") || "[]") 
+  user =  JSON.parse(localStorage.getItem("usuario") || "[]")
+  
+  
   abrirModalInsumo(accion:string,event:any){
     console.log(this.categoriaSelect);
     
@@ -36,29 +47,28 @@ export class DashboardAdministradorComponent implements OnInit,OnDestroy {
         this.cantidadInsumo = data.cantidadinsumo;
         this.valorUnitarioInsumo = data.valorunitarioinsumo;
         this.unidadInsumo = data.unidadinsumo;
-
         this.categoriaInsumoService.getCategoriaInsumoById(data.fk_idcategoriainsumos).subscribe((cat:any)=>{
           this.categoriaSelect = cat.nombrecategoria;
         })
         });
       this.actualizarInsumo(idInsumo);
     }
-
-
     this.displayBlockInsumo =   "block";
   }
+
   cerrarModalInsumo(){
     this.displayBlockInsumo =   "none"
   }
+
   abrirModal(){
     this.displayBlock =   "block"
     console.log(this.nombreUsuarioSesion);
   }
+
   cerrarModal(){
     this.displayBlock =   "none"
   }
-  pedidosTableState = false;
-  insumoTableState = false;
+
   changeStatePedidosTableState(){
     this.insumoTableState = false;
     if(this.pedidosTableState == true){
@@ -76,16 +86,16 @@ export class DashboardAdministradorComponent implements OnInit,OnDestroy {
       this.insumoTableState = true;
     }
   }
+
   direccionarUrl(url:string){
     this.router.navigate([url]);
   }
-  nombreUsuarioSesion = JSON.parse(localStorage.getItem("usuario") || "[]") 
-  user =  JSON.parse(localStorage.getItem("usuario") || "[]")
 
   nombreCompleto:any = this.user.nombreusuario;
   telefono:any = this.user.telefonousuario;
   email:any = this.user.emailusuario;
   contrasena:any = this.user.contrasenausuario;
+
   actualizarUsuario(){
     let data = {
       idusuario: this.user.idusuario,
@@ -104,7 +114,6 @@ export class DashboardAdministradorComponent implements OnInit,OnDestroy {
     }catch(err){
       alert("NO PUDIMOS ACTUALIZAR EN USUARIO")
       console.log(err);
-      
     }
   }
 
@@ -112,6 +121,7 @@ export class DashboardAdministradorComponent implements OnInit,OnDestroy {
   cantidadInsumo:any = "";
   valorUnitarioInsumo:any = "";
   unidadInsumo:any= "";
+
   agregarInsumo(){
     let data =  {
       "idinsumo": 0,
@@ -131,13 +141,10 @@ export class DashboardAdministradorComponent implements OnInit,OnDestroy {
     }catch(err){
       alert("NO PUDIMOS CREAR EL INSUMO")
       console.log(err);
-      
     }
   }
+
   actualizarInsumo(id:any){
-  
-    
-    
     let data =  {
       "idinsumo": id,
       "nombreinsumo": this.nombreInsumo,
@@ -153,46 +160,40 @@ export class DashboardAdministradorComponent implements OnInit,OnDestroy {
       console.log(data);
       this.insumoService.PostInsumo(data);
       alert("se actualizo ")
-
     }catch(err){
       alert("NO PUDIMOS CREAR EL INSUMO")
       console.log(err);
-      
     }
   }
-  constructor(private router:Router,
-              private usuarioService:UsuarioService,
-              private pedidoService:PedidoService,
-              private productoService:ProductoService,
-              private insumoService:InsumoService,
-              private categoriaInsumoService:CategoriaInsumoService) { }
+
+  
 
   ngOnInit(): void {
     this.obtenerPedidos()
     this.obtenerInsumos()
     this.obtenerCategoriaInsumos()
-    }
-    obtenerPedidos(){
-      this.pedidoService.getPedidos().subscribe((data:any)=>{
-        console.log(data);
-        this.listaPedidos = data;
-      })}
-    obtenerInsumos(){
-      this.insumoService.getInsumos().subscribe((data:any)=>{
-        console.log(data);
-        this.listaInsumos = data;
-      })
-    }
-    obtenerCategoriaInsumos(){
-      this.categoriaInsumoService.getCategoriaInsumos().subscribe((data:any)=>{
-        console.log(data);
-        this.listaCategoriaInsumos = data;
-      })
-    }
-  
-  ngOnDestroy(): void {
-    //Called once, before the instance is destroyed.
-    //Add 'implements OnDestroy' to the class.
-    /* this.dtTrigger.unsubscribe(); */
   }
+
+  obtenerPedidos(){
+    this.pedidoService.getPedidos().subscribe((data:any)=>{
+      console.log(data);
+      this.listaPedidos = data;
+    })
+  }
+
+  obtenerInsumos(){
+    this.insumoService.getInsumos().subscribe((data:any)=>{
+      console.log(data);
+      this.listaInsumos = data;
+    })
+  }
+  
+  obtenerCategoriaInsumos(){
+    this.categoriaInsumoService.getCategoriaInsumos().subscribe((data:any)=>{
+      console.log(data);
+      this.listaCategoriaInsumos = data;
+    })
+  }
+
+  ngOnDestroy() {}
 }
