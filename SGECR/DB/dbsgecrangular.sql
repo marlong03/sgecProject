@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-09-2022 a las 04:48:41
+-- Tiempo de generación: 15-11-2022 a las 00:39:25
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -69,8 +69,8 @@ CREATE TABLE `insumos` (
   `nombreInsumo` varchar(250) NOT NULL,
   `cantidadInsumo` int(11) NOT NULL,
   `unidadInsumo` varchar(10) NOT NULL,
-  `valorTotalInsumo` varchar(45) NOT NULL,
-  `fechaIngreso` date NOT NULL,
+  `valorTotalInsumo` int(30) NOT NULL,
+  `fechaIngreso` varchar(100) DEFAULT NULL,
   `estadoInsumo` varchar(50) NOT NULL,
   `fk_idCategoriaInsumos` int(11) NOT NULL,
   `valorUnitarioInsumo` int(11) DEFAULT NULL
@@ -81,8 +81,11 @@ CREATE TABLE `insumos` (
 --
 
 INSERT INTO `insumos` (`idInsumo`, `nombreInsumo`, `cantidadInsumo`, `unidadInsumo`, `valorTotalInsumo`, `fechaIngreso`, `estadoInsumo`, `fk_idCategoriaInsumos`, `valorUnitarioInsumo`) VALUES
-(1, 'pan hamburguesa', 200, 'und', '110000', '2022-09-08', 'Activo', 2, 500),
-(2, 'carne res', 20, 'lb', '100000', '2022-09-28', '', 0, 5000);
+(15, '', 0, '', 0, '2022-00-00', 'Activo', 2, 0),
+(16, 'pan hamburguesaqq', 12, 'und', 17208, '2022-00-00', 'Activo', 2, 1434),
+(17, 'queso', 22, 'und', 2684, '2022-00-00', 'Activo', 2, 122),
+(18, 'mazorca', 0, '', 0, '2022-00-00', 'Activo', 2, 0),
+(19, 'lulo', 22, 'kl', 22000, '2022-00-00', 'Activo', 2, 1000);
 
 -- --------------------------------------------------------
 
@@ -96,7 +99,7 @@ CREATE TABLE `pedidos` (
   `descripcionPedido` varchar(200) NOT NULL,
   `destinoPedido` varchar(50) NOT NULL,
   `detalleDestinoPedido` varchar(60) NOT NULL,
-  `valorPedido` decimal(10,0) UNSIGNED NOT NULL,
+  `valorPedido` int(11) NOT NULL,
   `observacionPedido` varchar(500) NOT NULL,
   `fk_idUsuario` int(11) NOT NULL,
   `estadoPedido` varchar(45) NOT NULL DEFAULT 'Pendiente',
@@ -109,8 +112,46 @@ CREATE TABLE `pedidos` (
 --
 
 INSERT INTO `pedidos` (`idPedido`, `referenciaPedido`, `descripcionPedido`, `destinoPedido`, `detalleDestinoPedido`, `valorPedido`, `observacionPedido`, `fk_idUsuario`, `estadoPedido`, `fechaPedido`, `fk_idDomiciliario`) VALUES
-(1, '1aef4', 'hamburguesa doble,haburguesa carne,gaseosa cuatro,gaseosa personal cocacola', 'casa', 'calle 100', '40', 'la haburguesa de carne sin cebolla, gracias', 3, 'Pendiente', '2020-02-03', 5),
-(2, '43asv', 'hamburguesa simple', 'mesa', '3', '10000', 'sin obser', 2, 'Pendiente', '2022-09-18', 0);
+(2, '43asv', 'hamburguesa simple', 'mesa', '3', 10000, 'sin obser', 2, 'entregado', '2022-09-18', 6),
+(3, 'ver54', 'hamburguesa doble,haburguesa carne,gaseosa cuatro,gaseosa personal cocacola', 'casa', 'calle 102', 40, 'la haburguesa de carne sin cebolla, gracias', 3, 'Cancelado', '2020-02-06', 5),
+(9, 'bb41d6', '[2 - Salchipapa],[5 - Hamburguesa Simple]', 'domicilio', 'calle 34', 74000, 'yo voy ahorita', 1, 'Entregado', '2022-11-01', 5),
+(10, '833513', '[1 - Hamburguesa Simple],[3 - Crepe Simple]', 'domicilio', 'calle 23', 22000, 'el crepe con frutas porfa', 1, 'Cancelado', '2022-11-01', 6),
+(11, '61e410', '[20 - Hamburguesa Doble]', 'domicilio', 'calle45 patio bonito', 240000, 'aqui espero tenog hambre', 1, 'Cancelado', '2022-11-04', 5),
+(12, '60e3d9', '[4 - Hamburguesa Simple]', 'domicilio', 'calle45 suba', 40000, 'aqui espero tenog hambre muchaa', 1, 'en camino', '2022-11-04', 5),
+(13, 'c077a5', '[2 - Salchipapa]', 'domicilio', 'carrera46', 24000, '', 1, 'Cancelado', '2022-11-04', 5),
+(14, '2ebede', '[3 - Choriperro],[2 - Perro Caliente Simple],[3 - Hamburguesa Doble],[3 - Salchipapa],[3 - Hamburguesa Simple]', '', '', 133000, '', 1, 'Cancelado', '2022-11-04', 7),
+(15, '3de9cc', '[1 - Hamburguesa Simple]', 'mesa', '', 10000, '', 1, 'Cancelado', '2022-11-04', 0),
+(16, '1c7387', '[4 - Salchipapa],[4 - Hamburguesa Simple]', 'domicilio', 'calle45 suba', 88000, '', 1, 'Cancelado', '2022-11-04', 0),
+(17, 'b4c6ed', '[2 - Hamburguesa Simple],[2 - Salchipapa]', 'domicilio', 'carrera46', 44000, '', 1, 'Cancelado', '2022-11-04', 0),
+(18, '802ac7', '[1 - Hamburguesa Simple]', 'domicilio', 'calle45 suba', 10000, '', 1, 'Cancelado', '2022-11-04', 0),
+(19, 'c00dc0', '[4 - Hamburguesa Simple],[2 - Hamburguesa Doble],[3 - Choriperro],[2 - Perro Caliente Simple],[1 - Crepe Simple]', 'domicilio', 'carrera 33', 99000, '', 1, 'Cancelado', '2022-11-04', 0),
+(20, '56b6c9', '[1 - Hamburguesa Simple]', 'mesa', '6', 10000, 'sin aji', 1, 'Cancelado', '2022-11-04', 0),
+(21, 'fe27c6', '[3 - Hamburguesa Simple]', 'recoge', 'calle 23', 30000, 'voy en 5mins', 1, 'Cancelado', '2022-11-04', 0),
+(22, '1d6ddd', '[2 - Hamburguesa Doble],[5 - Salchipapa],[1 - Crepe Simple],[3 - Mazorcada],[2 - Brownie Con Helado]', '', '7', 131600, 'aqui espero tenog hambre', 1, 'Cancelado', '2022-11-04', 0),
+(23, 'f40d9f', '[6 - Hamburguesa Doble],[2 - Salchipapa],[3 - Hamburguesa Simple]', 'domicilio', 'carrera 7 #34 56', 126000, 'rapido porfa', 1, 'entregado', '2022-11-04', 5),
+(24, '87f013', '[3 - Salchipapa]', 'domicilio', 'carrera 55', 36000, 'sin sal', 1, 'Enviado', '2022-11-04', 5),
+(25, '6c3665', '[1 - Mazorcada],[1 - Choriperro]', 'mesa', '2', 18000, '', 1, 'Enviado', '2022-11-04', 0),
+(26, 'e408bc', '[4 - Hamburguesa Simple]', 'recoge', '', 40000, 'llego tarde ', 1, 'Enviado', '2022-11-05', 0),
+(27, '353dc5', '[1 - Hamburguesa Simple]', 'mesa', '', 10000, 'el crepe con frutas porfa', 1, 'Cancelado', '2022-11-05', 0),
+(28, '08d3bd', '[1 - Hamburguesa Simple]', 'mesa', '', 10000, '', 1, 'Cancelado', '2022-11-05', 0),
+(29, '167867', '[1 - Hamburguesa Simple]', 'recoge', '', 10000, '', 1, 'Cancelado', '2022-11-05', 0),
+(30, '59cf42', '[1 - Salchipapa]', 'mesa', '', 12000, '', 1, 'Cancelado', '2022-11-05', 0),
+(31, '50b54b', '[1 - Hamburguesa Doble],[2 - Salchipapa],[1 - Hamburguesa Simple]', 'recoge', '', 46000, '', 1, 'Cancelado', '2022-11-05', 0),
+(32, 'f73ff8', '[1 - Hamburguesa Doble],[5 - Hamburguesa Simple]', 'mesa', '', 62000, 'sin salecita porfa', 1, 'Cancelado', '2022-11-05', 0),
+(33, 'bddcf7', '[1 - Hamburguesa Simple],[4 - Hamburguesa Doble]', 'recoge', '', 58000, '', 1, 'Cancelado', '2022-11-05', 0),
+(34, 'eae07f', '[1 - Hamburguesa Simple]', 'mesa', '3', 10000, '', 1, 'Cancelado', '2022-11-05', 0),
+(35, '8d0143', '[1 - Hamburguesa Simple]', 'mesa', '1', 10000, '', 1, 'Enviado', '2022-11-05', 0),
+(36, '3e847d', '[3 - Perro Caliente Simple],[4 - Brownie Con Helado],[2 - Mazorcada]', 'mesa', '1', 58200, '', 1, 'Enviado', '2022-11-05', 0),
+(37, '16c745', '[3 - Salchipapa]', 'mesa', '8', 36000, '', 1, 'Enviado', '2022-11-05', 0),
+(38, '34b333', '[1 - Hamburguesa Simple]', 'domicilio', '12312321', 10000, '12321', 9, 'Enviado', '2020-02-02', 5),
+(39, 'b3b4b8', '[1 - Salchipapa]', 'domicilio', '', 12000, '', 9, 'Enviado', '2020-02-02', 5),
+(40, 'fe5c0e', '[1 - Salchipapa],[1 - Hamburguesa Doble]', 'domicilio', 'calle45 patio bonito', 24000, 'sin leche', 9, 'Enviado', '2020-02-02', 6),
+(41, '5f460e', '[1 - Hamburguesa Simple],[1 - Hamburguesa Doble]', 'domicilio', '', 22000, '', 9, 'Enviado', '2020-02-02', 7),
+(42, '308603', '[1 - Hamburguesa Doble]', 'domicilio', 'carrera46', 12000, '', 9, 'Enviado', '2020-02-02', 7),
+(43, 'f4b871', '[1 - Hamburguesa Doble]', 'domicilio', 'carrera46', 12000, '', 9, 'Enviado', '2020-02-02', 8),
+(44, '20d838', '[1 - Hamburguesa Simple]', 'domicilio', '2 manzanas', 10000, '', 9, 'cancelado', '2020-02-02', 20),
+(45, '56a069', '[1 - Hamburguesa Simple]', 'domicilio', 'carrera46', 10000, '45', 9, 'Cancelado', '2020-02-02', 17),
+(46, 'b7b6c7', '[36 - Hamburguesa Doble],[15 - Crepe Simple],[19 - Mazorcada],[109 - Brownie Con Helado],[11 - Choriperro],[24 - Perro Caliente Simple],[9 - Salchipapa],[31 - Hamburguesa Simple]', 'domicilio', 'calle 34 #23 45 barrios unidos', 1893700, 'No timbre que yo bajo,Gracias', 9, 'entregado', '2020-02-02', 20);
 
 -- --------------------------------------------------------
 
@@ -165,7 +206,13 @@ CREATE TABLE `productos` (
 
 INSERT INTO `productos` (`idProducto`, `nombreProducto`, `valorProducto`) VALUES
 (1, 'hamburguesa simple', 10000),
-(2, 'salchipapa', 12000);
+(2, 'salchipapa', 12000),
+(3, 'hamburguesa doble', 12000),
+(4, 'perro caliente simple', 5000),
+(5, 'choriperro', 7000),
+(6, 'brownie con helado', 5300),
+(7, 'mazorcada', 11000),
+(8, 'crepe simple', 4000);
 
 -- --------------------------------------------------------
 
@@ -218,10 +265,10 @@ CREATE TABLE `rol_has_permisos` (
 CREATE TABLE `usuarios` (
   `idUsuario` int(11) NOT NULL,
   `nombreUsuario` varchar(45) NOT NULL,
-  `telefonoUsuario` int(20) NOT NULL,
+  `telefonoUsuario` varchar(20) NOT NULL,
   `emailUsuario` varchar(100) NOT NULL,
   `contrasenaUsuario` varchar(100) NOT NULL,
-  `estadoUsuario` bit(1) DEFAULT NULL,
+  `estadoUsuario` int(1) DEFAULT NULL,
   `codigoEmpresarial` varchar(45) DEFAULT NULL,
   `direccionUsuario` varchar(60) DEFAULT NULL,
   `fk_idRol` int(11) NOT NULL
@@ -232,15 +279,24 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`idUsuario`, `nombreUsuario`, `telefonoUsuario`, `emailUsuario`, `contrasenaUsuario`, `estadoUsuario`, `codigoEmpresarial`, `direccionUsuario`, `fk_idRol`) VALUES
-(1, 'administrador1', 2147483647, 'administrador1@gmail.com', 'Admin1', b'1', 'admin', NULL, 1),
-(2, 'adolfo', 3324532, 'adolfo@gmail.com', 'adolfito', b'1', '', 'calle 23', 3),
-(5, 'domiciliario1', 653654, 'domiciliario1@gmail.com', 'Domiciliario1', b'1', 'domi', NULL, 2),
-(6, 'domiciliario2', 7653264, 'domiciliario2@gmail.com', 'Domiciliario2', b'1', 'domi', NULL, 2),
-(7, 'domiciliario3', 7653264, 'domiciliario3@gmail.com', 'Domiciliario3', b'1', 'domi', NULL, 2),
-(8, 'domiciliario4', 64565, 'domiciliario4@gmail.com', 'Domiciliario4', b'1', 'domi', '', 2),
-(9, 'marliton juniior', 123123321, 'marliton@gmail.com', 'Marlong2013', b'1', 'Admin', '', 1),
-(10, 'administrador2', 14553453, 'administrador2@gmail.com', '123123', b'1', 'admin', '', 1),
-(11, 'kevin mendez', 1232131, 'kevin@gmail.com', '123123', b'1', 'admin', '', 1);
+(1, 'administrador1', '2147483647', 'administrador1@gmail.com', 'Admin1', 1, 'admin', NULL, 1),
+(2, 'adolfoActualizado', '3324532', 'adolfo@hotmail.com', 'adolfo123', 1, '', '', 3),
+(5, 'domiciliario1', '653654', 'domiciliario1@gmail.com', 'Domiciliario1', 0, 'domi', NULL, 2),
+(6, 'domiciliario2', '7653264', 'domiciliario2@gmail.com', '123123', 0, 'domi', '', 2),
+(7, 'domiciliario3', '3024567654', 'domiciliario3@gmail.com', '123123', 0, 'domi', '', 2),
+(8, 'domiciliario4', '64565', 'domiciliario4@gmail.com', 'Domiciliario4', 0, 'domi', '', 2),
+(9, 'marliton juniior', '123123321', 'marliton@gmail.com', 'Marlong2013', 1, 'Admin', '', 1),
+(10, 'administrador2', '14553453', 'administrador2@gmail.com', '123123', 1, 'admin', '', 1),
+(11, 'kevin mendez', '1232131', 'kevin@gmail.com', '123123', 1, 'admin', '', 1),
+(12, 'chocolate', '111111', 'chocolate@gmail.com', '123123', 1, 'admin', '', 1),
+(13, 'andres perez', '2222', 'andresp@gmail.com', '123123', 1, 'admin', '', 1),
+(14, 'chiqui2', '1231232132', 'chiqui2@gmail.com', '123123', 1, 'admin', '', 1),
+(15, 'as', '123', 'wwww', '123123', 1, 'domi', '', 2),
+(16, '', '0', '', '', 1, '', '', 0),
+(17, 'joker', '0', 'jockergmail.com', '', 0, 'domi', '', 2),
+(18, 'superman', '1434234454', 'superman@gmail.com', '123123', 1, 'admin', '', 1),
+(19, 'domiciliario5', '1342342311', 'domiciliario5@gmial.com', '123123', 1, 'domi', '', 2),
+(20, 'domiciliario6', '3000000000', 'domiciliario6@gmial.com', '123123', 0, 'domi', '', 2);
 
 -- --------------------------------------------------------
 
@@ -345,13 +401,13 @@ ALTER TABLE `detallesporventa`
 -- AUTO_INCREMENT de la tabla `insumos`
 --
 ALTER TABLE `insumos`
-  MODIFY `idInsumo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idInsumo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `idPedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idPedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos_has_productos`
@@ -369,7 +425,7 @@ ALTER TABLE `permisos`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -381,7 +437,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`

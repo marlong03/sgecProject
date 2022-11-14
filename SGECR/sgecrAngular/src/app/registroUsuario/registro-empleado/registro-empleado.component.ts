@@ -59,13 +59,12 @@ export class RegistroEmpleadoComponent implements OnInit {
 
           this.usuarioService.PostUsuario(data);
           alert("SE CREO EL USUARIO")
-          this.direccionarUrl("login")
         }catch(err){
           console.log("ERRORRR AQUI");
           
         }
       }else{
-        alert("LAS CONTRASEÑAS NO SON IGUALES PORFAVOR VUELVE A INTENTARLO")
+        alert("CONTRASEÑAS NO COINCIDEN")
       }
   }
 

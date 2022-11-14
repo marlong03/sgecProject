@@ -43,7 +43,43 @@
 
     </header>
 <main>
-    
+    <div id="myModal" class="modal"  [style.display]="displayBlock">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close" (click)="cerrarModal()">&times;</span>
+          <section class="container__form">
+            <h2 class="text-center">Actualizar</h2>
+            <form class="row g-3 " novalidate>
+                <div class="col-md-4 position-relative">
+                  <label for="validationTooltip01" class="form-label">Nombre Completo:</label>
+                  <input type="text" class="form-control"  name="nombreCompleto" [(ngModel)]="nombreCompleto" placeholder="{{user.nombreusuario}}" required>
+                  
+                </div>
+                <div class="col-md-4 position-relative">
+                    <label for="validationTooltip01" class="form-label">Telefono:</label>
+                    <input type="text" class="form-control" id="validationTooltip01" name="telefono"[(ngModel)]="telefono" placeholder="{{user.telefonousuario}}" required>
+                    
+                  </div>
+                  <div class="col-md-4 position-relative">
+                    <label for="validationTooltip01" class="form-label">Email:</label>
+                    <input type="text" class="form-control" id="validationTooltip01"name="email" [(ngModel)]="email" placeholder="{{user.emailusuario}}" required>
+                    
+                  </div>
+                  <div class="col-md-4 position-relative">
+                    <label for="validationTooltip01" class="form-label">Contraseña:</label>
+                    <input type="text" class="form-control" id="validationTooltip01" name="contrasena" [(ngModel)]="contrasena" placeholder="{{user.contrasenausuario}}"  required>
+                    
+                  </div>
+                  
+                <div class="col-12 d-flex justify-content-center my-2">
+                  <button class="btn btn-primary px-3 py-2" type="botton" (click)="actualizarUsuario()">Actualizar </button>
+                </div>
+              </form>
+          </section>
+        </div>
+      
+      </div>
     <section class="section__nav--big">
 
         <nav class="">
@@ -55,20 +91,22 @@
                     <img src="../../assets/imgs/editar.png" alt="">
                 </div>
             </div>
+            
             <div class="container__modulos">
                 <h3>Registro Pedidos</h3>
                 <ul>
        <li (click)="changeStatePedidosTableState()">Pedidos Pendientes</li>
-                   <!--  <a href="../registroPedido/pedidosMesa.html" target="principal"><li>Pedidos Entregados</li></a> -->
+                    <a href="../registroPedido/pedidosMesa.html" target="principal"><li>Pedidos Entregados</li></a>
+
                     <!-- <a href="../registroPedido/pedidosDomicilio.html" target="principal"><li>Pedidos a domicilio</li></a>
                     <a href="../registroPedido/pedidosRecojeTienda.html" target="principal"><li>Recoger en tienda</li></a> -->
                 </ul>
                 <h3>Inventario</h3>
                 <ul>
                    <li (click)="changeStateInsumoTableState()">Listado de Productos</li>
-                    <!-- <a href="../Inventario/agregarProducto.html" target="principal"><li>Agregar producto</li></a> -->
-                    <!-- <a href="../Inventario/actualizarProducto.html" target="principal"><li>Actualizar producto</li></a> -->
-                   <!--  <a href="../Inventario/borrarProducto.html" target="principal"><li>Borrar Producto</li></a> -->
+                    <a href="../Inventario/agregarProducto.html" target="principal"><li>Agregar producto</li></a>
+                    <a href="../Inventario/actualizarProducto.html" target="principal"><li>Actualizar producto</li></a>
+                   <a href="../Inventario/borrarProducto.html" target="principal"><li>Borrar Producto</li></a>
 
                 </ul>
                 <h3>Domicilio</h3>
@@ -82,9 +120,152 @@
         </nav>
     </section>
     
-<section class="container__section--left">
-    <app-registro-pedidos ></app-registro-pedidos>
+<section style="width:100%;height:100%;">
+    <section class="container__table">
+       <!--  <h1>Pedidos a domicilio </h1> -->
+
+
+        <div *ngIf="pedidosTableState">
+          <table class="table table-sm table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Referencia</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Destino</th>
+                <th scope="col">Detalle destino</th>
+                <!-- <th scope="col">Observacion</th> -->
+               <!--  <th scope="col">Fecha</th> -->
+                <th scope="col">Cliente</th>
+                <th scope="col">Valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let p of listaPedidos">
+                <th scope="row">{{p.idpedido}}</th>
+                <td>{{p.referenciapedido}}</td>
+                <td>{{p.descripcionpedido}}</td>
+                <td>{{p.destinopedido}}</td>
+                <td>{{p.detalledestinopedido}}</td>
+                <!-- <td>{{p.observacion}}</td> -->
+               <!--  <td>{{p.fechapedido}}</td> -->
+                <td>{{p.fk_idusuario}}</td>
+                <td>{{p.valorpedido}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <div *ngIf="insumoTableState">
+          <table class="table table-sm table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Unidad</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Precio(Und)</th>
+                <th scope="col">Total</th>
+                <th scope="col">Acciones</th>
+
+                <!-- <th scope="col">Observacion</th> -->
+               <!--  <th scope="col">Fecha</th> -->
+                <!-- <th scope="col">Cliente</th>
+                <th scope="col">Valor</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let i of listaInsumos">
+                <th scope="row">{{i.idinsumo}}</th>
+                <td>{{i.nombreinsumo}}</td>
+                <td>{{i.unidadinsumo}}</td>
+                <td>{{i.cantidadinsumo}}</td>
+                <td>${{i.valorunitarioinsumo}}</td>
+                <td>${{i.valortotalinsumo}}</td>
+                <td>
+                  <input type="botton" class="btn btn-primary w-50 " value="Actualizar" (click)="abrirModalInsumo('Actualizar',$event)" >
+                  <input type="botton" class="btn btn-danger w-50" value="Borrar" (click)="borrarInsumo($event)">
+                </td>
+
+              </tr>
+            </tbody>
+          </table>
+          <input type="botton" class="btn btn-success py-2 my-4 mx-1" value="Añadir" (click)="abrirModalInsumo('Añadir','')">
+         
+        </div>
+
+        <div id="myModalInsumo" class="modal"  [style.display]="displayBlockInsumo">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close" (click)="cerrarModalInsumo()">&times;</span>
+            <section class="container__form">
+              <!-- <h2 class="text-center">Actualizar</h2> -->
+              <form class="row g-3 " novalidate>
+                    <div class="col-md-4 position-relative">
+                      <label for="validationTooltip01" class="form-label">Nombre Insumo:</label>
+                      <input type="text" class="form-control"  name="nombreInsumo" [(ngModel)]="nombreInsumo"  required>
+                    </div>
+                    <div class="col-md-4 position-relative">
+                      <label for="validationTooltip01" class="form-label">Unidad insumo:</label>
+                      <input type="text" class="form-control" id="validationTooltip01" name="unidadInsumo"[(ngModel)]="unidadInsumo" required>
+                    </div>
+                    <div class="col-md-4 position-relative">
+                      <label for="validationTooltip01" class="form-label">Valor unitario:</label>
+                      <input type="number" class="form-control" id="validationTooltip01"name="valorUnitarioInsumo" [(ngModel)]="valorUnitarioInsumo" required>
+                    </div>
+                    <div class="col-md-4 position-relative">
+                      <label for="validationTooltip01" class="form-label">Cantidad:</label>
+                      <input type="number" class="form-control" id="validationTooltip01" name="cantidadInsumo" [(ngModel)]="cantidadInsumo"   required>
+                    </div>
+                    <div class="col-md-4 position-relative">
+                      <label for="validationTooltip01" class="form-label">Categoria insumo:</label>
+                      <select name="categoriaSelect" [(ngModel)]="categoriaSelect">
+                        <option value="seleccionar">Seleccione una categoria...</option>
+                        <option  value="{{ci.nombrecategoria}}" *ngFor="let ci of listaCategoriaInsumos">{{ci.nombrecategoria}}</option>
+                       <!--  <option value="">1</option>
+                        <option value="">1</option> -->
+
+                      </select>
+                    </div>
+                    
+                  <div class="col-12 d-flex justify-content-center my-2">
+                    <button class="btn btn-success px-3 py-2" type="botton" (click)="agregarInsumo()">{{accionModalInsumo}}</button>
+                  </div>
+                </form>
+            </section>
+          </div>
+        
+        </div>
+
+        <!-- <div class="table-responsive"> -->
+            <!-- <table datatable #tabla class="row-border hover">
+                <thead>
+                  <tr>
+                    <th>Id pedido</th>
+                    <th>Referencia</th>
+                    <th>Destino pedido</th>
+                    <th>Descripcion pedido</th>
+                    <th>observacionPedido</th>
+                    <th>Valor pedido</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let pedido of persons">
+                    <td>{{pedido.idpedido}}</td>
+                    <td>{{pedido.referenciapedido}}</td>
+                    <td>{{pedido.destinopedido}}</td>
+                    <td>{{pedido.descripcionpedido}}</td>
+                    <td>{{pedido.observacionpedido}}</td>
+                    <td>{{pedido.valorpedido}}</td>
+                  </tr>
+                </tbody>
+              </table> -->
+        <!-- </div> -->
+    </section>
     
+    <!-- <iframe name="principal"src="./graficas.html"></iframe> -->
 </section>
 </main>
 <footer>

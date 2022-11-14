@@ -11,6 +11,9 @@ export class InsumoService {
   getInsumoById(id:any):any{
     return this.http.get("http://localhost:8080/insumo/"+id);
   }
+  deleteInsumoById(id:any):any{
+    return this.http.delete("http://localhost:8080/insumo/"+id);
+  }
  
    PostInsumo(data:Insumo):any{
     return this.http.post<Insumo>("http://localhost:8080/insumo/new",data).subscribe((x:any) => {
