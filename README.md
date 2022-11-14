@@ -9,8 +9,7 @@ Java - Springboot
 MySql
 Este proyecto tiene como finalidad poner en practica lo aprendido y desarrollado durante tecnologo (ADSI) SENA
 
-//----------------------
 SENA - 2341506 (GAES 7)
 Marlong Mendoza
 14/11/2022
-//----------------------
+
