@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -18,12 +19,24 @@ export class LoginComponent implements OnInit {
     this.usuarioService.validarUsuario(this.email,this.password).subscribe((data:any)=>{
       console.log(data);
       if(data != null){
+        localStorage.clear()
         localStorage.setItem("usuario",JSON.stringify(data))
-        
-        this.router.navigate(['dashboardAdmin'])
+        if(data.codigoempresarial.toLowerCase() == "admin"){
+          this.router.navigate(['dashboardAdmin'])
+        }
+        else if(data.codigoempresarial == "domi"){
+          this.router.navigate(['dashboardDomi'])
+        }
 
       }else{
-        alert("UPS, NO TE ENCONTRAMOS")
+        Swal.fire(
+          '¡Ups! Algo escribiste mal 😅',
+          'Revisa y vuelve a intentarlo',
+          'error'
+        ).then((x)=>{
+          this.email = "";
+          this.password = "";
+        })
       }
     })
   }

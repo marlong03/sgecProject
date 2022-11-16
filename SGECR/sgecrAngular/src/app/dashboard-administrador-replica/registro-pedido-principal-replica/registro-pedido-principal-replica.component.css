@@ -1,0 +1,11 @@
+*{
+    font-family: 'Exo 2', sans-serif;
+
+}
+.container__material--table{
+    width: 90%;
+    margin:20px auto;
+}
+.container__bts--accion{
+    display: contents;
+}

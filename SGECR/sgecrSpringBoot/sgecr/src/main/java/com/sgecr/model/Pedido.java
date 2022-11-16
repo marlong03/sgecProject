@@ -22,7 +22,7 @@ public class Pedido {
     @Column
     private String detalledestinopedido;
     @Column
-    private String valorpedido;
+    private int valorpedido;
     @Column
     private String observacionpedido;
     @Column
@@ -38,7 +38,7 @@ public class Pedido {
     }
     
     public Pedido(int idpedido, String referenciapedido, String descripcionpedido, String destinopedido,
-            String detalledestinopedido, String valorpedido, String observacionpedido, int fk_idusuario,
+            String detalledestinopedido, int valorpedido, String observacionpedido, int fk_idusuario,
             String estadopedido, String fechapedido, int fk_iddomiciliario) {
         this.idpedido = idpedido;
         this.referenciapedido = referenciapedido;
@@ -83,10 +83,10 @@ public class Pedido {
     public void setDetalledestinopedido(String detalledestinopedido) {
         this.detalledestinopedido = detalledestinopedido;
     }
-    public String getValorpedido() {
+    public int getValorpedido() {
         return valorpedido;
     }
-    public void setValorpedido(String valorpedido) {
+    public void setValorpedido(int valorpedido) {
         this.valorpedido = valorpedido;
     }
     public String getObservacionpedido() {

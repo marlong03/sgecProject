@@ -1,7 +1,8 @@
 *{
     margin:0;
     padding:0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Exo 2', sans-serif;
+
     text-transform: capitalize;
 }
 
@@ -62,6 +63,9 @@ nav{
 .navbar{
     padding:40px 30px !important;
     background-color: #ffcb3b !important;
+    box-shadow: 0px 0px 5px #b8b8b8;
+    position: relative;
+
 }
 .container__login{
     display:flex;
@@ -77,10 +81,32 @@ nav{
     border:2px solid white;
     
 }
-.container__login img:hover{
+.container__login h4{
+font-size: 20px;
+margin:15px 0;
+color:#787878;
+
+}
+.img__user{
+    width: 63px;
+    height: 63px;
+    margin:0 auto;
+    background-color: #ffcb3b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    color:white;
+    border-radius: 100px;
+    text-shadow: 3px 3px 3px gray;
+    border: 3px solid white;
+
+
+}
+/* .container__login img:hover{
     border:2px solid black;
     
-}
+} */
 .container__login select{
     background-color: #e2b027;
     outline: none;
@@ -91,10 +117,12 @@ nav{
 ::-webkit-scrollbar{
     width:13px;
     background:#ffffff;
+    
 }
 ::-webkit-scrollbar-thumb{
     background-color: #ffcb3b;
     border: 3px solid white;
+    border-radius: 10px;
 }
 .container__modulos{
     background-color: #dfdfdf;
@@ -103,19 +131,27 @@ nav{
 .container__modulos {
     text-align: center;
 }
+.container__modulos h3{
+    border-bottom: 3px solid white;
+    padding-bottom: 7px;
+}
 .container__modulos li{
     text-decoration: none;
     list-style: none;
     padding:10px;
-    background-color:#e9e9e9;
+    background-color:#f4f4f4;
     border-radius: 5px;
     margin:4px 0;   
     text-transform: capitalize; 
+    border: 3px solid #f4f4f4;
 
 }
 .container__modulos li:hover{
-    background-color: #e2b027;
+    background-color: #ffcb3b;
+    border: 3px solid #f3f3f3;
+
     cursor: pointer;
+
 }
 
 .container__modulos ul{
@@ -184,7 +220,8 @@ footer a{
 *{
     padding:0;
     margin:0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Exo 2', sans-serif;
+
     font-size: 16px;
     text-transform: capitalize ;
 
@@ -324,8 +361,8 @@ center h2{
     text-transform: capitalize ;
 } */
 .container__edit img{
-    width:18px;
-    height:18px;
+    width:22px;
+    height:22px;
 
     margin: 0 10px;
     border:none;
@@ -378,3 +415,15 @@ center h2{
     padding:5px 10px;
   }
 /* MODAL */
+
+.container__section--left{
+    width: 100%;
+}
+
+.modal__editarUsuario{
+    background-color: #c03e0a;
+    width: 200px;
+    height:200px;
+    position: absolute;
+    top:0;
+}

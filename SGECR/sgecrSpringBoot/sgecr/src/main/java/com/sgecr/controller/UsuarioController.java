@@ -28,6 +28,19 @@ public class UsuarioController {
     public List<Usuario> getUsuarios(){
         return usuarioService.getAllUsuarios();
     }
+    @GetMapping("domiciliarios")
+    public List<Usuario> getUsuariosDomiciliarios(){
+        return usuarioService.getAllDomiciliarios();
+    }
+    @GetMapping("domiciliarios/disponibles")
+    public List<Usuario> getUsuariosDomiciliariosDisponibles(){
+        return usuarioService.getAllDomiciliariosDisponibles();
+    }
+    @GetMapping("nombre/{nombre}")
+    public Optional<Usuario> getUsuarioByNombre(@PathVariable String nombre){
+        return usuarioService.getUsuarioByNombre(nombre);
+    }
+
     @GetMapping("{id}")
     public Optional<Usuario> getUsuarios(@PathVariable int id){
         return usuarioService.getUsuario(id);

@@ -16,6 +16,18 @@ public class UsuarioService {
      public List<Usuario>getAllUsuarios(){
         return repository.findAll();
      }
+      public List<Usuario>getAllDomiciliarios(){
+         String codigoEmprearial = "domi";
+         return repository.findByCodigoempresarial(codigoEmprearial);
+      }
+      public List<Usuario>getAllDomiciliariosDisponibles(){
+         String codigoEmprearial = "domi";
+         int estadoUsuario = 1;
+         return repository.findByCodigoempresarialAndEstadousuario(codigoEmprearial, estadoUsuario);
+      }
+      public Optional<Usuario> getUsuarioByNombre(String nombre){
+         return repository.findByNombreusuario(nombre);
+      }
      public Optional<Usuario> getUsuario(int id){
         return repository.findById(id);
      }

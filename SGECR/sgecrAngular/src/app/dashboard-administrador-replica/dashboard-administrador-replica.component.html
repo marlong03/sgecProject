@@ -1,0 +1,89 @@
+
+<header>
+    <div class="navbar navbar-expand-lg navbar-light ">
+        <img src="../../assets/imgs/logo2.png" alt="">
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <section class="container__section--nav d-lg-none">
+
+            <nav>
+                <div class="container__login">
+                    <img src="../../assets/imgs/usuario.jpg" alt="foto persona">
+                    <h3>wernher florez</h3>
+                  <input type="button" class="btn btn-light" (click)="cerrarSesion()"value="Cerrar sesión">
+                </div>
+                
+                <div class="container__modulos">
+                    <h3>Registro Cliente</h3>
+                    <ul>
+                        <li><a href="../registroPedido/pedidosMesa.html" target="principal">Pedidos en mesa</a></li>
+                        <li><a href="../registroPedido/pedidosDomicilio.html" target="principal">Pedidos a Domicilio</a></li>
+                        <li><a href="../registroPedido/pedidosRecojeTienda.html" target="principal">Recoger en tienda</a></li>
+                    </ul>
+                    <h3>Inventario</h3>
+                    <ul>
+                        <li><a href="../Inventario/visualizarProductos.html" target="principal">Listado de Productos</a></li>
+                        <li><a href="../Inventario/agregarProducto.html" target="principal">Agregar producto</a></li>
+                        <li><a href="../Inventario/actualizarProducto.html" target="principal">Actualizar producto</a></li>
+                        <li><a href="../Inventario/borrarProducto.html" target="principal">Borrar Producto</a></li>
+                    </ul>
+                    <h3>Domicilio</h3>
+                    <ul>
+                        <li><a href="../domiciliario/pedidosRealizados.html" target="principal">Registro domicilios</a></li> 
+                    </ul>                       
+                </div>             
+            </nav>
+        </section>  
+      </div>
+    </div>
+
+    </header>
+<main>
+    
+    <section class="section__nav--big">
+
+        <nav class="">
+            <div class="container__login">
+                <img src="../../assets/imgs/usuario.jpg" alt="foto persona">
+                <h3>{{nombreUsuarioSesion.nombreusuario}}</h3>
+                <div class="d-flex container__edit align-items-center" (click)="abrirModal()">   
+                    <input (click)="cerrarSesion()" type="button" class="btn btn-light px-2  my-2" value="Cerrar sesión" >
+                    <img src="../../assets/imgs/editar.png" alt="">
+                </div>
+            </div>
+            <div class="container__modulos">
+                <h3>Registro Pedidos</h3>
+                <ul> 
+                    <li>Pedidos Pendientes  </li>
+                    <li>Pedidos Enviados</li>
+                    <li >Pedidos Entregados</li>
+                    <li >Pedidos Cancelados</li>
+                </ul>
+                <h3>Inventario</h3>
+                <ul >
+                   <li >Listado de Productos</li>
+                </ul>
+                <h3>Domicilio</h3>
+                <ul>
+                    <a href="../domiciliario/pedidosRealizados.html" target="principal"><li>Registro domicilios</li></a>
+                    
+                </ul>
+                
+            </div>
+            
+        </nav>
+    </section>
+    
+<section class="container__section--left">
+        <app-registro-pedido-principal-replica></app-registro-pedido-principal-replica>
+   <!--  hola -->
+    
+</section>
+</main>
+<footer>
+    <p>creado por&nbsp</p><a href="../../html/inventario/inventario.html">SGECR</a>
+</footer>
+

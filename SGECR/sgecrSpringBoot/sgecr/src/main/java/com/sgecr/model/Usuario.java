@@ -18,7 +18,7 @@ public class Usuario {
     private String nombreusuario;
 
     @Column
-    private int telefonousuario;
+    private String telefonousuario;
 
     @Column
     private String emailusuario;
@@ -41,7 +41,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(int idusuario, String nombreusuario, int telefonousuario, String emailusuario,
+    public Usuario(int idusuario, String nombreusuario, String telefonousuario, String emailusuario,
             String contrasenausuario, int estadousuario, String codigoempresarial, String direccionusuario,
             int fk_idrol) {
         this.idusuario = idusuario;
@@ -71,11 +71,11 @@ public class Usuario {
         this.nombreusuario = nombreusuario;
     }
 
-    public int gettelefonousuario() {
+    public String gettelefonousuario() {
         return telefonousuario;
     }
 
-    public void settelefonousuario(int telefonousuario) {
+    public void settelefonousuario(String telefonousuario) {
         this.telefonousuario = telefonousuario;
     }
 

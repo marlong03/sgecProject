@@ -8,6 +8,15 @@ export class UsuarioService {
     getUsuarios():any{
       return this.http.get("http://localhost:8080/usuario/all");
     }
+    getDomiciliarios():any{
+      return this.http.get("http://localhost:8080/usuario/domiciliarios");
+    }
+    getDomiciliariosDisponibles():any{
+      return this.http.get("http://localhost:8080/usuario/domiciliarios/disponibles");
+    }
+    getUsuarioByNombre(nombre:string):any{
+      return this.http.get("http://localhost:8080/usuario/nombre" +'/' + nombre);
+    }
     validarUsuario(email:any,password:any):any{
       return this.http.get("http://localhost:8080/usuario/" + email + "/" + password);
     }
@@ -21,7 +30,7 @@ export class UsuarioService {
 interface Usuario{
   "idusuario": number,
   "nombreusuario": string,
-  "telefonousuario": number,
+  "telefonousuario": string,
   "emailusuario": string,
   "contrasenausuario": string,
   "estadousuario": number,

@@ -20,8 +20,13 @@
                 <input type="password" placeholder="Confirma Contraseña*"name="password" id="passwordConfirm">
                 <input type="text" placeholder="Direccion residencial">
             </form>
-            <button class="btn" id="btnRegistro">Enviar</button>
-            <p>¿Ya tienes una cuenta?<span (click)="direccionarUrl('loginCliente')"> Inicia sesion aquí</span></p>
+            <button class="btn " id="btnRegistro">Enviar</button>
+            <div class="d-flex">
+
+                <p>¿Tienes una cuenta?<span (click)="direccionarUrl('login')"> Inicia sesion aquí</span></p>
+                <span class="mx-3 text-light">|</span>
+                <p>¿Eres Empleado?<span (click)="direccionarUrl('registroEmpleado')"> Registrate aquí</span></p>
+            </div>
             
         </div>
 </section> 
